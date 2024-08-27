@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h1><%= userInfo.platform %> Profile</h1>
+        <h3><strong>Name:</strong> <%= userInfo.name %></h3>
+        <p><strong>Email:</strong> <%= userInfo.email %></p>
+        <p><strong>Profile Picture:</strong>
+            <% if (userInfo.picture) { %>
+                <img src="<%= userInfo.picture %>" alt="Profile Picture" style="max-width: 200px; height: auto;" />
+            <% } else { %>
+                Not Available
+            <% } %>
+        </p>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
