@@ -7,17 +7,21 @@
 </head>
 <body>
     <div style="text-align: center">
-        <h1><%= userInfo.platform %> Profile</h1>
-        <h3><strong>Name:</strong> <%= userInfo.name %></h3>
-        <p><strong>Email:</strong> <%= userInfo.email %></p>
-        <p><strong>Profile Picture:</strong>
-            <% if (userInfo.picture) { %>
-                <img src="<%= userInfo.picture %>" alt="Profile Picture" style="max-width: 200px; height: auto;" />
-            <% } else { %>
-                Not Available
-            <% } %>
-        </p>
-        <a href="/logout">Logout</a>
+        <h1><%= userInfo ? userInfo.platform : 'Error' %> Profile</h1>
+        <% if (userInfo) { %>
+            <h3><strong>Name:</strong> <%= userInfo.name %></h3>
+            <p><strong>Email:</strong> <%= userInfo.email %></p>
+            <p><strong>Profile Picture:</strong>
+                <% if (userInfo.picture) { %>
+                    <img src="<%= userInfo.picture %>" alt="Profile Picture" style="max-width: 200px; height: auto;" />
+                <% } else { %>
+                    Not Available
+                <% } %>
+            </p>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <p>No user information available.</p>
+        <% } %>
     </div>
 </body>
 </html>
